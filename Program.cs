@@ -4,7 +4,7 @@ using System.Linq;
 
 //HOLA MUNDO! Solo reemplazamos el vector por consonantes - Angel
 // Hola, aqui estubo JL
-
+// Hola soy Yammir
 class ContadorDeVocalesConsola
 {
     static void Main()
