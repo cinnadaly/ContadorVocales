@@ -1,12 +1,7 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-//HOLA MUNDO! Solo reemplazamos el vector por consonantes - Angel
-// Hola, aqui estubo JL
-// Hola soy Yammir
-
-//Holi, puse en comentario el contador de vocales en caso de necesitarlo tambien -Karol :)
 class ContadorDeVocalesyConsonantes
 {
     static void Main()
@@ -18,10 +13,10 @@ class ContadorDeVocalesyConsonantes
             Console.WriteLine("\nFavor de ingresar un texto:");
             string textoIngresado = Console.ReadLine().ToLower();
 
-            //(int contadorVocales, Dictionary<char, int> vocalesEncontradas) = CountVowels(textoIngresado);
+            (int contadorVocales, Dictionary<char, int> vocalesEncontradas) = CountVowels(textoIngresado);
             (int contadorConsonantes, Dictionary<char, int> consonantesEncontradas) = CountConsonants(textoIngresado);
 
-            /*Console.WriteLine("\nSe encuentran " + contadorVocales + " vocales en el texto: " + textoIngresado + " :)");
+            Console.WriteLine("\nSe encuentran " + contadorVocales + " vocales en el texto: " + textoIngresado + " :)");
             if (contadorVocales > 0)
             {
                 Console.WriteLine("Las vocales encontradas son:");
@@ -33,7 +28,7 @@ class ContadorDeVocalesyConsonantes
             else
             {
                 Console.WriteLine("No se encontraron vocales en el texto ingresado :(");
-            }*/
+            }
 
             Console.WriteLine("\nSe encuentran " + contadorConsonantes + " consonantes en el texto: " + textoIngresado + " :)");
             if (contadorConsonantes > 0)
@@ -56,7 +51,7 @@ class ContadorDeVocalesyConsonantes
         } while (cki.Key != ConsoleKey.Escape);
     }
 
-    /*static (int, Dictionary<char, int>) CountVowels(string texto)
+    static (int, Dictionary<char, int>) CountVowels(string texto)
     {
         char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
         Dictionary<char, int> vocalesEncontradas = new Dictionary<char, int>();
@@ -80,7 +75,7 @@ class ContadorDeVocalesyConsonantes
         }
 
         return (contador, vocalesEncontradas);
-    }*/
+    }
 
     static (int, Dictionary<char, int>) CountConsonants(string texto)
     {
@@ -104,3 +99,7 @@ class ContadorDeVocalesyConsonantes
                 }
             }
         }
+
+        return (contador, consonantesEncontradas);
+    }
+}
