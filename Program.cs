@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 
 //HOLA MUNDO! Solo reemplazamos el vector por consonantes - Angel
-// Hola, aqui estubo JL
+// Hola, aqui estuvo JL
 
 class ContadorDeVocalesConsola
 {
