@@ -3,34 +3,52 @@ using System.Collections.Generic;
 using System.Linq;
 
 //HOLA MUNDO! Solo reemplazamos el vector por consonantes - Angel
-// Hola, aqui estuvo JL
+// Hola, aqui estubo JL
+// Hola soy Yammir
 
-class ContadorDeVocalesConsola
+//Holi, puse en comentario el contador de vocales en caso de necesitarlo tambien -Karol :)
+class ContadorDeVocalesyConsonantes
 {
     static void Main()
     {
         ConsoleKeyInfo cki;
         do
         {
-            Console.WriteLine("Bienvenido al contador de Consonantes!");
+            Console.WriteLine("Bienvenido al contador de vocales y consonantes!");
             Console.WriteLine("\nFavor de ingresar un texto:");
             string textoIngresado = Console.ReadLine().ToLower();
 
-            (int contador, Dictionary<char, int> ConsonantesEncontradas) = CountConsonantes(textoIngresado);
+            //(int contadorVocales, Dictionary<char, int> vocalesEncontradas) = CountVowels(textoIngresado);
+            (int contadorConsonantes, Dictionary<char, int> consonantesEncontradas) = CountConsonants(textoIngresado);
 
-            Console.WriteLine("\nSe encuentran " + contador + " consonantes en el texto: " + textoIngresado + " :)");
-            if (contador > 0)
+            /*Console.WriteLine("\nSe encuentran " + contadorVocales + " vocales en el texto: " + textoIngresado + " :)");
+            if (contadorVocales > 0)
             {
-                Console.WriteLine("Las consonantes encontradas son:");
-                foreach (var Consonante in ConsonantesEncontradas)
+                Console.WriteLine("Las vocales encontradas son:");
+                foreach (var vocal in vocalesEncontradas)
                 {
-                    Console.WriteLine($"Consonante '{Consonante.Key}' encontrada {Consonante.Value} vez/veces.");
+                    Console.WriteLine($"Vocal '{vocal.Key}' encontrada {vocal.Value} vez/veces.");
                 }
             }
             else
             {
                 Console.WriteLine("No se encontraron vocales en el texto ingresado :(");
+            }*/
+
+            Console.WriteLine("\nSe encuentran " + contadorConsonantes + " consonantes en el texto: " + textoIngresado + " :)");
+            if (contadorConsonantes > 0)
+            {
+                Console.WriteLine("Las consonantes encontradas son:");
+                foreach (var consonante in consonantesEncontradas)
+                {
+                    Console.WriteLine($"Consonante '{consonante.Key}' encontrada {consonante.Value} vez/veces.");
+                }
             }
+            else
+            {
+                Console.WriteLine("No se encontraron consonantes en el texto ingresado :(");
+            }
+
             Console.WriteLine("\nSi desea salir, presione la tecla Escape (Esc)");
             Console.WriteLine("Si desea ingresar otro texto, presione Enter.");
             cki = Console.ReadKey();
@@ -38,29 +56,51 @@ class ContadorDeVocalesConsola
         } while (cki.Key != ConsoleKey.Escape);
     }
 
-    static (int, Dictionary<char, int>) CountConsonantes(string texto)
+    /*static (int, Dictionary<char, int>) CountVowels(string texto)
     {
-        char[] consonantes = { 'b', 'c', 'd', 'f', 'g','h', 'j', 'k', 'l', 'm','n','p', 'q', 'r', 's','t', 'v', 'w', 'x', 'y', 'z' };
-        Dictionary<char, int> ConsonantesEncontradas = new Dictionary<char, int>();
+        char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+        Dictionary<char, int> vocalesEncontradas = new Dictionary<char, int>();
 
         int contador = 0;
 
         foreach (char v in texto)
         {
-            if (consonantes.Contains(v))
+            if (vowels.Contains(v))
             {
                 contador++;
-                if (ConsonantesEncontradas.ContainsKey(v))
+                if (vocalesEncontradas.ContainsKey(v))
                 {
-                    ConsonantesEncontradas[v]++;
+                    vocalesEncontradas[v]++;
                 }
                 else
                 {
-                    ConsonantesEncontradas[v] = 1;
+                    vocalesEncontradas[v] = 1;
                 }
             }
         }
 
-        return (contador, ConsonantesEncontradas);
-    }
-}
+        return (contador, vocalesEncontradas);
+    }*/
+
+    static (int, Dictionary<char, int>) CountConsonants(string texto)
+    {
+        char[] vowels = { 'a', 'e', 'i', 'o', 'u' };
+        Dictionary<char, int> consonantesEncontradas = new Dictionary<char, int>();
+
+        int contador = 0;
+
+        foreach (char c in texto)
+        {
+            if (char.IsLetter(c) && !vowels.Contains(c))
+            {
+                contador++;
+                if (consonantesEncontradas.ContainsKey(c))
+                {
+                    consonantesEncontradas[c]++;
+                }
+                else
+                {
+                    consonantesEncontradas[c] = 1;
+                }
+            }
+        }
